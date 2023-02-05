@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #1C1C1C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+    font-family: 'Inter';
+}
+
+header {
+    background-image: url("images/header-bg.png");
+    width: 550px;
+    height: 208px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 42.7947px;
+    letter-spacing: -0.045em;
+}
+
+.header-watchlist {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+main {
+    width: 550px;
+    background: #121212;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
