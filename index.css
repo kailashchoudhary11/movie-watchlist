@@ -27,13 +27,53 @@ header {
 }
 
 .header-watchlist {
+    position: relative;
     color: white;
     text-decoration: none;
     font-weight: 700;
     font-size: 14px;
 }
 
-main {
+#search-form {
+    position: absolute;
+    top: 189px;
+    background: #2E2E2F;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+}
+.search-label {
+    justify-self: center;
+    align-self: center;
+    margin: 7px 10px 0px 15px;
+}
+
+input#search-text {
+    width: 342px;
+    height: 38px;
+    background: #2E2E2F;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter';
+    color: #A5A5A5;
+    outline: none;
+}
+
+button#search-btn {
+    padding: 9px 11px 9px 17px;
+    background: #4B4B4B;
+    border-radius: 0px 6px 6px 0px;
+    width: 120px;
+    height: 38px;
+    border: none;
+    font-family: 'Inter';
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.movies {
     width: 550px;
     background: #121212;
     height: 540px;
@@ -41,4 +81,11 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.initial-text {
+    margin-top: 9px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #2E2E2F;
 }

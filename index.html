@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <title>Index Page</title>
-</head>
-<body>
-    <header>
-        <h1 class="header-title">Find Your Film</h1>
-        <a class="header-watchlist" href="watchlist.html">My WatchList</a>
-    </header>
-    <main>
-        <img src="images/empty.png" alt="No Movies!">
-   </main>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="index.css" />
+        <title>Index Page</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="header-title">Find Your Film</h1>
+            <a class="header-watchlist" href="watchlist.html">My WatchList</a>
+            <form id="search-form">
+                <label class="search-label" for="search-text"
+                    ><img src="images/search-icon.png" alt="Search Icon"
+                /></label>
+                <input
+                    type="text"
+                    id="search-text"
+                    placeholder="Blade Runner"
+                    required
+                />
+                <button id="search-btn">Search</button>
+            </form>
+        </header>
+        <main>
+            <div class="movies">
+                <img src="images/empty.png" alt="No Movies!" />
+                <div class="initial-text">Start exploring</div>
+            </div>
+        </main>
+        <script src="./index.js" type="module"></script>
+    </body>
 </html>
