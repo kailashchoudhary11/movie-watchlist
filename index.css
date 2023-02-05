@@ -4,12 +4,12 @@
 }
 
 body {
-    background: #1C1C1C;
+    background: #1c1c1c;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #FFFFFF;
-    font-family: 'Inter';
+    color: #ffffff;
+    font-family: "Inter";
 }
 
 header {
@@ -37,7 +37,7 @@ header {
 #search-form {
     position: absolute;
     top: 189px;
-    background: #2E2E2F;
+    background: #2e2e2f;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     display: flex;
@@ -52,24 +52,24 @@ header {
 input#search-text {
     width: 342px;
     height: 38px;
-    background: #2E2E2F;
+    background: #2e2e2f;
     border: none;
     border-radius: 6px;
     font-size: 14px;
-    font-family: 'Inter';
-    color: #A5A5A5;
+    font-family: "Inter";
+    color: #a5a5a5;
     outline: none;
 }
 
 button#search-btn {
     padding: 9px 11px 9px 17px;
-    background: #4B4B4B;
+    background: #4b4b4b;
     border-radius: 0px 6px 6px 0px;
     width: 120px;
     height: 38px;
     border: none;
-    font-family: 'Inter';
-    color: #FFFFFF;
+    font-family: "Inter";
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -81,11 +81,34 @@ button#search-btn {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 61px 41px;
+    box-sizing: border-box;
 }
 
 .initial-text {
     margin-top: 9px;
     font-weight: 700;
     font-size: 18px;
-    color: #2E2E2F;
+    color: #2e2e2f;
+}
+
+.not-found {
+    font-weight: 700;
+    font-size: 18px;
+    width: 321px;
+    text-align: center;
+    color: #787878;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.movie {
+    display: flex;
+}
+
+.movie-poster {
+    width: 99px;
+    height: 148px;
 }
