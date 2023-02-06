@@ -4,15 +4,17 @@ const searchForm = document.getElementById("search-form");
 const searchTextEl = document.getElementById("search-text");
 const moviesContainer = document.getElementById("movies");
 let moviesData = [];
+let moviesArray = [];
+let watchList = [];
 
 searchForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const searchText = searchTextEl.value;
-    moviesData = await setMoviesData(searchText);
-    renderMovies();
+    moviesData = (await getMoviesData(searchText)).map(movie => new Movie(movie));
+    renderMovies(moviesData);
 });
 
-async function setMoviesData(searchText) {
+async function getMoviesData(searchText) {
     const resultData = [];
     const res = await fetch(
         `http://www.omdbapi.com/?s=${searchText}&apikey=83ab7c1e&type=movie`
@@ -30,10 +32,10 @@ async function setMoviesData(searchText) {
     return resultData;
 }
 
-function renderMovies() {
+function renderMovies(data) {
     let renderHtml = "";
-    if (moviesData.length > 0) {
-        renderHtml = moviesData.map(movie => new Movie(movie).getMovieHtml()).join("");
+    if (data.length > 0) {
+        renderHtml = data.map(movie => movie.getMovieHtml()).join("");
         moviesContainer.classList.add("full-height");
     } else {
         renderHtml = `
@@ -46,4 +48,18 @@ function renderMovies() {
         moviesContainer.classList.remove("full-height");
     }
     moviesContainer.innerHTML = renderHtml;
+    addToWatchList();
+}
+
+function addToWatchList() {
+    const btns = document.getElementsByClassName("add-btn");
+    for (let btn of btns) {
+        btn.addEventListener("click", event => {
+            const movie = moviesData.filter(movie => movie.imdbID === event.target.dataset.imdbid)[0];
+            if (!watchList.find(tempMovie => tempMovie === movie)) {
+                watchList.push(movie);
+            }
+            console.log(watchList);
+        });
+    }
 }
