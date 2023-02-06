@@ -19,7 +19,7 @@ async function setMoviesData(searchText) {
     );
     const data = await res.json();
     if (data.Response === "True") {
-        for (let movie of data.Search.slice(0, 2)) {
+        for (let movie of data.Search.slice(0, 5)) {
             const res = await fetch(
                 `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=83ab7c1e&type=movie&plot=short`
             );

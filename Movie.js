@@ -40,13 +40,13 @@ imdbRating
                     <div class="details-main">
                         <div class="movie-duration">${Runtime}</div>
                         <div class="movie-genre">${Genre}</div>
-                        <button>
+                        <button class="add-btn">
                             <img src="./images/add-icon.png" alt="add-icon">
                             Watchlist
                         </button>
                     </div>
-                    <div class="description">
-                        ${Plot}
+                    <div class="movie-description">
+                        ${Plot.endsWith("...") ? Plot + `<span class="white-txt">Read More</span>` : Plot}
                     </div>
                 </div>
             </div>

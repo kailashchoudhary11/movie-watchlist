@@ -102,13 +102,70 @@ button#search-btn {
 
 .full-height {
     height: 100%;
+    overflow-y: auto;
 }
 
 .movie {
     display: flex;
+    gap: 21px;
 }
 
 .movie-poster {
     width: 99px;
     height: 148px;
+}
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.movie-title {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.detail-header > img {
+    width: 15px;
+    height: 15px;
+}
+
+.movie-rating {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.details-main {
+    display: flex;
+    gap: 18px;
+    font-weight: 400;
+    font-size: 12px;
+    align-items: center;
+}
+
+.add-btn {
+    background: none;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.movie-description {
+    font-weight: 400;
+    font-size: 14px;
+    color: #a5a5a5;
+}
+
+.white-txt {
+    color: white;
 }
