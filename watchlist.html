@@ -4,10 +4,30 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="index.css" />
-        <title>Watchlist</title>
+        <title>WatchList</title>
     </head>
     <body>
-        
+        <header>
+            <h1 class="header-title">My WatchList</h1>
+            <a class="header-watchlist" href="index.html">Search for movies</a>
+        </header>
+        <main>
+            <div class="movies" id="movies">
+                <div class="initial-text">Your watchlist is looking a little empty...</div>
+                <div class="add-movies">
+                    <a href="index.html
+                    "><img src="images/add-icon.png" alt="Add Movies"></a>
+                    <div>Let’s add some movies!</div>
+                </div>
+            </div>
+        </main>
+        <script src="./watchlist.js" type="module"></script>
     </body>
 </html>

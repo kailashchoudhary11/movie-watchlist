@@ -4,8 +4,9 @@ class Movie {
         Object.assign(this, data);
     }
 
-    getMovieHtml() {
+    getMovieHtml(isWatchlist) {
         const { Poster, Title, imdbRating, Runtime, Genre, imdbID, Plot } = this;
+        console.log(this);
         return `
             <div class="movie">
                 <img class="movie-poster" src="${Poster}" alt="${Title}'s Poster" />
@@ -19,8 +20,8 @@ class Movie {
                         <div class="movie-duration">${Runtime}</div>
                         <div class="movie-genre">${Genre}</div>
                         <button class="add-btn" data-imdbid="${imdbID}">
-                            <img src="./images/add-icon.png" alt="add-icon">
-                            Watchlist
+                            <img src="./images/${isWatchlist ? "remove-icon" : "add-icon"}.png" alt="add-icon">
+                            ${isWatchlist ? "Remove" : "Watchlist"}
                         </button>
                     </div>
                     <div class="movie-description">

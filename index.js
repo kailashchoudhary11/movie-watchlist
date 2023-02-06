@@ -1,17 +1,14 @@
 import Movie from "./Movie.js";
-
 const searchForm = document.getElementById("search-form");
 const searchTextEl = document.getElementById("search-text");
 const moviesContainer = document.getElementById("movies");
 let moviesData = [];
-let moviesArray = [];
-let watchList = [];
-
+let watchList = JSON.parse(localStorage.getItem("watchlist")) || [];
 searchForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const searchText = searchTextEl.value;
-    moviesData = (await getMoviesData(searchText)).map(movie => new Movie(movie));
-    renderMovies(moviesData);
+    moviesData = await getMoviesData(searchText);
+    renderMovies();
 });
 
 async function getMoviesData(searchText) {
@@ -32,10 +29,10 @@ async function getMoviesData(searchText) {
     return resultData;
 }
 
-function renderMovies(data) {
+function renderMovies() {
     let renderHtml = "";
-    if (data.length > 0) {
-        renderHtml = data.map(movie => movie.getMovieHtml()).join("");
+    if (moviesData.length > 0) {
+        renderHtml = moviesData.map(movie => new Movie(movie).getMovieHtml()).join("");
         moviesContainer.classList.add("full-height");
     } else {
         renderHtml = `
@@ -58,8 +55,8 @@ function addToWatchList() {
             const movie = moviesData.filter(movie => movie.imdbID === event.target.dataset.imdbid)[0];
             if (!watchList.find(tempMovie => tempMovie === movie)) {
                 watchList.push(movie);
+                localStorage.setItem("watchlist", JSON.stringify(watchList));
             }
-            console.log(watchList);
         });
     }
 }
