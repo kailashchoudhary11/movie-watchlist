@@ -17,13 +17,13 @@ searchForm.addEventListener("submit", async (event) => {
 async function getMoviesData(searchText) {
     const resultData = [];
     const res = await fetch(
-        `http://www.omdbapi.com/?s=${searchText}&apikey=83ab7c1e&type=movie`
+        `https://www.omdbapi.com/?s=${searchText}&apikey=83ab7c1e&type=movie`
     );
     const data = await res.json();
     if (data.Response === "True") {
         for (let movie of data.Search.slice(0, 5)) {
             const res = await fetch(
-                `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=83ab7c1e&type=movie&plot=short`
+                `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=83ab7c1e&type=movie&plot=short`
             );
             const data = await res.json();
             resultData.push(data);
