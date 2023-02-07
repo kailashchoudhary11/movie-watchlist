@@ -1,12 +1,15 @@
 import Movie from "./Movie.js";
+import {toggle } from "./utils.js";
 const searchForm = document.getElementById("search-form");
 const searchTextEl = document.getElementById("search-text");
 const moviesContainer = document.getElementById("movies");
 let moviesData = [];
 let watchList = JSON.parse(localStorage.getItem("watchlist")) || [];
+
 searchForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     const searchText = searchTextEl.value;
+    toggle();
     moviesData = await getMoviesData(searchText);
     renderMovies();
 });
@@ -32,29 +35,37 @@ async function getMoviesData(searchText) {
 function renderMovies() {
     let renderHtml = "";
     if (moviesData.length > 0) {
-        renderHtml = moviesData.map(movie => new Movie(movie).getMovieHtml()).join("");
+        renderHtml = moviesData
+            .map((movie) => new Movie(movie).getMovieHtml())
+            .join("");
+        moviesContainer.innerHTML = renderHtml;
         moviesContainer.classList.add("full-height");
+
+        addToWatchList();
+
+        toggle();
     } else {
         renderHtml = `
-        <div class="not-found">
+        <div class="initial not-found">
         Unable to find what you're looking 
         for.
         Please try another search.
         </div>
-        `
+        `;
         moviesContainer.classList.remove("full-height");
+        moviesContainer.innerHTML = renderHtml;
     }
-    moviesContainer.innerHTML = renderHtml;
-    addToWatchList();
 }
 
 function addToWatchList() {
-    const btns = document.getElementsByClassName("add-btn");
+    const btns = document.getElementsByClassName("watchlist-btn");
     for (let btn of btns) {
-        btn.addEventListener("click", event => {
-            const movie = moviesData.filter(movie => movie.imdbID === event.target.dataset.imdbid)[0];
-            if (!watchList.find(tempMovie => tempMovie === movie)) {
-                watchList.push(movie);
+        btn.addEventListener("click", (event) => {
+            const movie = moviesData.filter(
+                (movie) => movie.imdbID === event.target.dataset.imdbid
+            )[0];
+            if (!watchList.find((tempMovie) => tempMovie === movie)) {
+                watchList.unshift(movie);
                 localStorage.setItem("watchlist", JSON.stringify(watchList));
             }
         });

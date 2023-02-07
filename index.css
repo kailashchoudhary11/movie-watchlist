@@ -43,6 +43,7 @@ header {
     display: flex;
     align-items: center;
 }
+
 .search-label {
     justify-self: center;
     align-self: center;
@@ -72,6 +73,12 @@ button#search-btn {
     color: #ffffff;
     cursor: pointer;
 }
+
+/* main {
+    width: 550px;
+    background: #121212;
+    height: 540px;
+} */
 
 .movies {
     width: 550px;
@@ -163,7 +170,7 @@ button#search-btn {
     align-items: center;
 }
 
-.add-btn {
+.watchlist-btn {
     background: none;
     color: white;
     border: none;
@@ -192,4 +199,34 @@ button#search-btn {
 .add-movies > div {
     font-weight: 700;
     font-size: 14px;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 6px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 6px solid black;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+  
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
 }
