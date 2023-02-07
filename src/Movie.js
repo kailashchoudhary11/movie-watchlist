@@ -1,11 +1,11 @@
 class Movie {
     constructor(data) {
-        // console.log(data);
         Object.assign(this, data);
     }
-// print hello using the c programming language 
+
     getMovieHtml(isWatchlist) {
-        const { Poster, Title, imdbRating, Runtime, Genre, imdbID, Plot } = this;
+        const { Poster, Title, imdbRating, Runtime, Genre, imdbID, Plot } =
+            this;
         return `
             <div class="movie">
                 <img class="movie-poster" src="${Poster}" alt="${Title}'s Poster" />
@@ -19,7 +19,9 @@ class Movie {
                         <div class="movie-duration">${Runtime}</div>
                         <div class="movie-genre">${Genre}</div>
                         <button class="watchlist-btn" data-imdbid="${imdbID}">
-                            <img data-imdbid="${imdbID}" src="./images/${isWatchlist ? "remove-icon" : "add-icon"}.png" alt="add-icon">
+                            <img data-imdbid="${imdbID}" src="./images/${
+            isWatchlist ? "remove-icon" : "add-icon"
+        }.png" alt="add-icon">
                             ${isWatchlist ? "Remove" : "Watchlist"}
                         </button>
                     </div>
@@ -33,7 +35,10 @@ class Movie {
                     </div>
                 </div>
             </div>
-            <br class="movie-end">
+            <hr class="${isWatchlist ?
+                "movie-end-watchlist" : 
+                "movie-end" 
+            }">
         `;
     }
 }

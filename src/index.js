@@ -1,5 +1,5 @@
 import Movie from "./Movie.js";
-import {toggle } from "./utils.js";
+import { toggle } from "./utils.js";
 const searchForm = document.getElementById("search-form");
 const searchTextEl = document.getElementById("search-text");
 const moviesContainer = document.getElementById("movies");
@@ -38,23 +38,22 @@ function renderMovies() {
         renderHtml = moviesData
             .map((movie) => new Movie(movie).getMovieHtml())
             .join("");
-        moviesContainer.innerHTML = renderHtml;
         moviesContainer.classList.add("full-height");
-
-        addToWatchList();
-
-        toggle();
     } else {
         renderHtml = `
-        <div class="initial not-found">
-        Unable to find what you're looking 
-        for.
-        Please try another search.
-        </div>
+            <div class="initial not-found">
+                Unable to find what you're looking 
+                for.
+                Please try another search.
+            </div>
         `;
         moviesContainer.classList.remove("full-height");
-        moviesContainer.innerHTML = renderHtml;
     }
+
+    moviesContainer.innerHTML = renderHtml;
+    addToWatchList();
+
+    toggle();
 }
 
 function addToWatchList() {

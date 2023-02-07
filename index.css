@@ -74,12 +74,6 @@ button#search-btn {
     cursor: pointer;
 }
 
-/* main {
-    width: 550px;
-    background: #121212;
-    height: 540px;
-} */
-
 .movies {
     width: 550px;
     background: #121212;
@@ -199,6 +193,22 @@ button#search-btn {
 .add-movies > div {
     font-weight: 700;
     font-size: 14px;
+}
+
+.movie-end {
+    width: 461px;
+    height: 0px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    border: 1.5px solid #2C2C2C;
+}
+
+.movie-end-watchlist {
+    width: 461px;
+    height: 0px;
+    margin-top: 33px;
+    margin-bottom: 21px;
+    border: 1.5px solid #E5E7EB;
 }
 
 .loader {

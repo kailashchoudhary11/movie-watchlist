@@ -1,12 +1,14 @@
 import Movie from "./Movie.js";
-import {load} from "./utils.js";
+import { load } from "./utils.js";
 const watchList = JSON.parse(localStorage.getItem("watchlist")) || [];
 const moviesContainer = document.getElementById("movies");
 
 function renderWatchList() {
-    let renderHtml = '';
+    let renderHtml = "";
     if (watchList.length > 0) {
-        renderHtml = watchList.map((movie) => new Movie(movie).getMovieHtml(true)).join("");
+        renderHtml = watchList
+            .map((movie) => new Movie(movie).getMovieHtml(true))
+            .join("");
         moviesContainer.classList.add("full-height");
     } else {
         renderHtml = `
@@ -19,7 +21,7 @@ function renderWatchList() {
                     <div>Let’s add some movies!</div>
                 </div>
             </div>
-        `
+        `;
         moviesContainer.classList.remove("full-height");
     }
     moviesContainer.innerHTML = renderHtml;
@@ -29,12 +31,15 @@ function renderWatchList() {
 function removeFromWatchList() {
     const btns = document.getElementsByClassName("watchlist-btn");
     for (let btn of btns) {
-        btn.addEventListener("click", event => {
-           load(1000);
+        btn.addEventListener("click", (event) => {
+            load(1000);
             for (let i = 0; i < watchList.length; i++) {
                 if (watchList[i].imdbID === event.target.dataset.imdbid) {
                     watchList.splice(i, 1);
-                    localStorage.setItem("watchlist", JSON.stringify(watchList));
+                    localStorage.setItem(
+                        "watchlist",
+                        JSON.stringify(watchList)
+                    );
                     renderWatchList();
                 }
             }
